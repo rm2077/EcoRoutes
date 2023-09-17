@@ -14,15 +14,15 @@
 <body style="background: linear-gradient(to right, #434343 0%, black 100%);">
     <div class="nav-justified">
         <nav class="navbar navbar-left bg-dark">
-            <a class="navbar-brand" href="#index.html">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
                 <img src="/static/EcoRoutes-logos_white.png" width="60" height="60" alt="Logo">
             </a>
         </nav>
         <nav class="navbar navbar-right bg-dark">
-            <a class="navbar-brand" href="#routes.html">
+            <a class="navbar-brand" href="{{ url_for('route') }}">
                 <h5 class="text-success" style="font-weight: italic;">Routes</h5>
             </a>
-            <a class="navbar-brand" href="#carbon.html">
+            <a class="navbar-brand" href="{{ url_for('carbon') }}">
                 <h5 class="text-success" style="font-weight: italic;">Emissions</h5>
             </a>   
         </nav>
