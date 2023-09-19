@@ -32,42 +32,42 @@
     <br>
     <br>
     <br>
-    <h1  style="font-family: 'Press Start 2P', cursive;" class="text-success text-center">Carbon Emissions Calculator</h1>
+    <h1  style="font-family: 'Press Start 2P', cursive;" class="text-success text-center">UberLand's Annual Carbon Footprint</h1>
+    <h2 style="font-family: 'Press Start 2P', cursive;" class="text-success text-center">For your vehicle.</h2>
     <br>
     <br>
     <br>
-    <div class="text-center" class="text-center">
-        <form method="post" enctype="multipart/form-data" action="/carbon"></form>
-            <label for="car_brand" class="text-success" placeholder = "Enter here" style="font-family: 'Press Start 2P', cursive;">Car Brand</label>
-            <select name="Car Brand:" style="font-family: 'Press Start 2P', cursive;">
+    <div class="text-center">
+        <form name="passdata" action="/carbon" method="post">
+                <label class="center-block text-success text-center" style="font-size: 30px; font-family: 'Press Start 2P', cursive;">Car Brand</label>
+                <input type="text" name="carBrand">
                 <br>
-                <option value="Honda">Honda</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Ford">Ford</option>
-                <option value="Chevy">Chevy</option>
-            </select>
-            <br>
-            <br>
-            <label for="car_type" class="text-success" placeholder = "Enter here" style="font-family: 'Press Start 2P', cursive;">Car Type</label>
-            <select name="Car Type:" style="font-family: 'Press Start 2P', cursive;">
                 <br>
-                <option value="Sedan">Sedan</option>
-                <option value="SUV">SUV</option>
-            </select>
-            <br>
-            
-            <h4 style="font-family: 'Press Start 2P', cursive;" class="text-success">Miles Driven</h4>
-            <input name="miles_driven" placeholder="Type something..">
-            <br>
-            <h4 style="font-family: 'Press Start 2P', cursive;" class="text-success">Gallons per Mile</h4>
-            <input name="fuel_per_gallon" placeholder="Type something..">
-            <br>
-            <input type="Submit" value="Submit" class="form-control">
+                <label class="center-block text-success text-center" style="font-size: 30px; font-family: 'Press Start 2P', cursive;">Type:</label>
+                <input type="text" name="car_type">
+                <br>
+                <br>
+                <label class="center-block text-success text-center" style="font-size: 30px; font-family: 'Press Start 2P', cursive;">miles_driven</label>
+                <input style="width: 300px;"type="text" name="miles">
+                <br>
+                <br>
+                <label class="center-block text-success text-center" style="font-size: 30px; font-family: 'Press Start 2P', cursive;">fuel_per_gallon</label>
+                <input type="text" name="fuel">
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+                
+        </form>
     </div>
-        <br>
-        <br>
-        <br>
-        <h1>{{ car_brand }}</h1>
-        <h1>{{ car_type }}</h1>
+        
+            
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1> {{ car_brand }} </h1>
+    <h1> {{ car_type }} </h1>
+    <h1> {{ miles }} </h1>
+    <h1> {{ fuel }} </h1>
 </body>
 </html>
