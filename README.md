@@ -1,5 +1,5 @@
 # EcoRoutes
-Requirements: 
+Requirements:
 Install Python and Flask
 Running the project:
 Make sure you are in the project directory
