@@ -14,12 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
     
 </head>
 
 <body style="background: linear-gradient(to right, #434343 0%, black 100%);">
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    
         <div class="nav-justified">
             <nav class="navbar navbar-left bg-dark">
                 <a class="navbar-brand" href="{{ url_for('index') }}">
@@ -27,44 +28,63 @@
                 </a>
             </nav>
             <nav class="navbar navbar-right bg-dark">
+                <a class="navbar-brand" href="{{ url_for('info') }}">
+                    <h5 class="text-success" style="font-weight: italic;">Info</h5>
+                </a>
                 <a class="navbar-brand" href="{{ url_for('route') }}">
-                    <h5 class="text-success" style="font-weight: italic;">Routes</h5>
+                    <h5 class="text-success" style="font-weight: italic;">Uber Route Optimization</h5>
                 </a>
                 <a class="navbar-brand" href="{{ url_for('carbon') }}">
-                    <h5 class="text-success" style="font-weight: italic;">Emissions</h5>
+                    <h5 class="text-success" style="font-weight: italic;">Uber Carbon Emissions</h5>
                 </a>
                 <a class="navbar-brand" href="{{ url_for('electric') }}">
-                    <h5 class="text-success" style="font-weight: italic;">Electric</h5>
+                    <h5 class="text-success" style="font-weight: italic;">Uber Biking Routes</h5>
                 </a>    
             </nav>
         </div>
         <br>
         <br>
         <br>
-        <h1 class="text-center text-success" style="font-family: 'Press Start 2P', cursive;">UberLand Transportation</h1>
+        <h1 class="text-center text-success entrance-animation animate" style="font-family: 'Press Start 2P', cursive;">UberLand Biking Transportation</h1>
         <br>
         <br>
-        <h3 class="text-center text-success" style="font-family: 'Press Start 2P', cursive;">Interactive Map</h3>
+        <h3 class="text-center text-success entrance-animation animate" style="font-family: 'Press Start 2P', cursive;">Interactive Map</h3>
         <br>
         <br>
-        <div id='map' style="width: 700px; height: 500px;" class="center-block"></div>
+        <div id='map' style="width: 700px; height: 700px;" class="center-block entrance-animation animate"></div>
         
             <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoicmF1bmFrbWFoZXNod2FyaSIsImEiOiJjbG1xdGRieXEwMHNiMnNyeGUwZXA1NGdmIn0.zh9NbSLhVUouJ9xDAOK3DA';
+                const uberland_long = -74.0060
+                const uberland_lat = 40.7128
                 const map = new mapboxgl.Map({
                 container: 'map',
-                // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-                style: 'mapbox://styles/mapbox/streets-v12',
-                center: [-79.4512, 43.6568],
-                zoom: 13
+                style: 'mapbox://styles/mapbox/navigation-night-v1',
+                center: [uberland_long, uberland_lat],
+                zoom: 8
                 });
                 
-                map.addControl(
-                new MapboxDirections({
-                accessToken: mapboxgl.accessToken
-                }),
-                'top-left'
-                );
+                
+                map.on('load', function(){
+                    const directions = new MapboxDirections({
+                        accessToken: mapboxgl.accessToken,
+                        profile: 'mapbox/driving',
+                        alternatives: true,
+                        addDestinationButton: true,
+                        interactive: true,
+                        controls: {
+                            inputs: true,
+                            instructions: true
+                        },
+                    });
+                    map.addControl(directions, 'top-left')
+                });
+
+
+
+
+                
+                
             </script>
        
 </body>

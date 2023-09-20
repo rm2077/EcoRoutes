@@ -15,7 +15,7 @@
     <div class="nav-justified">
         <nav class="navbar navbar-left bg-dark">
             <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="/static/EcoRoutes-logos_white.png" width="80" height="80" alt="Logo">
+                <img src="/static/EcoRoutes-logos_white.png" width="60" height="60" alt="Logo">
             </a>
         </nav>
         <nav class="navbar navbar-right bg-dark">
@@ -33,19 +33,24 @@
             </a>        
         </nav>
     </div>
-
     <br>
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1 class="text-success text-center" style="font-family: 'Press Start 2P', cursive; font-size: 30px;">Your {{carbrand}} {{cartype}} emits {{carbon_emissions}} KG of CO2</h1>
-    <h1 class="text-success text-center" style="font-family: 'Press Start 2P', cursive; font-size: 30px;">Every YEAR!</h1>
-
-    
-
-</body>
-</html>
+    <div class="entrance-animation animate typing-animation">
+        <h1 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;">What is EcoRoutes?</h1>
+        <hr>
+        <h4 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;">An app that assists UberLand Drivers and Civillians with Route Optimization across all modes of transport.</h4>
+        <br>
+        <h4 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;">We offer <em>2</em> maps</h4>
+        <h4 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;">And a <em>Carbon Emissions</em> calculator</h4>
+        <hr>
+        <h1 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;">How can I use this software?</h1>
+        <hr>
+        <h4 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;"><a href="{{url_for('route')}}">Driving Routes</a></h4>
+        <br>
+        <h4 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;"><a href="{{url_for('electric')}}">Biking Routes</a></h4>
+        <br>
+        <h4 class="text-success text-center" style="font-family: 'Press Start 2P', cursive;"><a href="{{url_for('carbon')}}">Annual Carbon Emissions</a></h4>
+        <br>
+    </div>

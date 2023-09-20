@@ -53,14 +53,17 @@
                 </a>
             </nav>
             <nav class="navbar navbar-right bg-dark">
+              <a class="navbar-brand" href="{{ url_for('info') }}">
+                <h5 class="text-success" style="font-weight: italic;">Info</h5>
+            </a>
                 <a class="navbar-brand" href="{{ url_for('route') }}">
-                    <h5 class="text-success" style="font-weight: italic;">Routes</h5>
+                    <h5 class="text-success" style="font-weight: italic;">Uber Route Optimization</h5>
                 </a>
                 <a class="navbar-brand" href="{{ url_for('carbon') }}">
-                    <h5 class="text-success" style="font-weight: italic;">Emissions</h5>
+                    <h5 class="text-success" style="font-weight: italic;">Uber Carbon Emissions</h5>
                 </a> 
                 <a class="navbar-brand" href="{{ url_for('electric') }}">
-                  <h5 class="text-success" style="font-weight: italic;">Electric</h5>
+                  <h5 class="text-success" style="font-weight: italic;">Uber Biking Routes</h5>
               </a>       
             </nav>
         </div>
@@ -69,8 +72,9 @@
         <br>
         <br>
         <br>
-        
-        <div id="map" style="width: 700px; height: 500px;" class="center-block">
+        <h1 class="text-success text-center" style="font-family: 'Press Start 2P', cursive; font-size: 30px;">Live Traffic and Incidents</h1>
+        <h1 class="text-success text-center" style="font-family: 'Press Start 2P', cursive; font-size: 30px;">Uber Drivers: Route Optimization</h1>
+        <div id="map" style="width: 700px; height: 500px;" class="center-block entrance-animation animate">
 
         </div>
 </body>

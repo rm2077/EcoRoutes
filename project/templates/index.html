@@ -10,6 +10,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        .typing-animation {
+            font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+            border-right: 2px solid green;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 4s steps(45, end), blink-caret 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 50% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: green; }
+        }
+        .entrance-animation {
+            opacity: 0;
+            transform: translateY(20px); 
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        
+        .entrance-animation.animate {
+            animation: fadeInUp 1s ease forwards, slideInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body style="background: linear-gradient(to right, #434343 0%, black 100%);">
     <div class="nav-justified">
@@ -19,14 +69,17 @@
             </a>
         </nav>
         <nav class="navbar navbar-right bg-dark">
+            <a class="navbar-brand" href="{{ url_for('info') }}">
+                <h5 class="text-success" style="font-weight: italic;">Info</h5>
+            </a>
             <a class="navbar-brand" href="{{ url_for('route') }}">
-                <h5 class="text-success" style="font-weight: italic;">Routes</h5>
+                <h5 class="text-success" style="font-weight: italic;">Uber Route Optimization</h5>
             </a>
             <a class="navbar-brand" href="{{ url_for('carbon') }}">
-                <h5 class="text-success" style="font-weight: italic;">Emissions</h5>
+                <h5 class="text-success" style="font-weight: italic;">Uber Carbon Emissions</h5>
             </a>
             <a class="navbar-brand" href="{{ url_for('electric') }}">
-                <h5 class="text-success" style="font-weight: italic;">Electric</h5>
+                <h5 class="text-success" style="font-weight: italic;">Uber Biking Routes</h5>
             </a>        
         </nav>
     </div>
@@ -34,18 +87,22 @@
     <br>
     <br>
     <br>
-    <div class="text-center">
-        <h1 class="text-success" style="font-family: 'Press Start 2P', cursive;">EcoRoutes</h1>
-        <h3 class="text-success" style="font-family: 'Press Start 2P', cursive;">UberLand's next major update.</h3>
+    <div class="text-center entrance-animation animate">
+        <h1 class="text-success typing-animation" style="font-family: 'Press Start 2P', cursive;">EcoRoutes</h1>
+        <h3 class="text-success typing-animation" style="font-family: 'Press Start 2P', cursive;">UberLand's next major update.</h3>
     </div>
     <br>
     <br>
     <br>
     <br>
-    <div class="text-center">
-        <h3 class="text-success" style="font-family: 'Press Start 2P', cursive;">What can EcoRoutes accomplish?</h1>
+    <div class="text-center entrance-animation animate">
+        <h3 class="text-success" style="font-family: 'Press Start 2P', cursive;">Biking, Driving, Walking</h1>
         <h5 class="text-success" style="font-family: 'Press Start 2P', cursive;">Route Optimization</h3>
-        <h5 class="text-success" style="font-family: 'Press Start 2P', cursive;">Carbon Emissions Calculations</h3>
+            <br>
+            <br>
+        <h3 class="text-success" style="font-family: 'Press Start 2P', cursive;">Live Traffic and Incident Display</h3>
+
+        <h5 class="text-success" style="font-family: 'Press Start 2P', cursive;">Uber Drivers: Carbon Emissions Calculations</h3>
     </div>
     
     

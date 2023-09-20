@@ -15,10 +15,12 @@ def carbon():
     if request.method == "POST":
         carbrand = request.form['brand']
         cartype = request.form['type']
-        miles = float(request.form["miles"])
+        miles = int(request.form["miles"])
+        
+        
         fuel = request.form["fuel"]
-        distance = float(request.form["mileage"])
-
+        distance = int(request.form['mileage'])
+        year_days = 365
         if fuel == "Diesel":
             emissions_factor = 10.16  
         elif fuel == "Gasoline":
@@ -28,8 +30,9 @@ def carbon():
 
         carbon_emissions = (miles / distance) * emissions_factor
         carbon_emissions = round(carbon_emissions, 2)
+        annual_carbon_emissions = round(carbon_emissions * year_days, 2)
         
-        return render_template("success.html", carbrand=carbrand, cartype=cartype, miles=miles, fuel=fuel, carbon_emissions=carbon_emissions)
+        return render_template("success.html", carbrand=carbrand, cartype=cartype, miles=miles, fuel=fuel, carbon_emissions=annual_carbon_emissions)
 
     return render_template('carbon.html')
 
@@ -37,6 +40,10 @@ def carbon():
 def electric():
     ACCESS_TOKEN = "sk.eyJ1IjoicmF1bmFrbWFoZXNod2FyaSIsImEiOiJjbG1xdGduc2EwMHVjMm5teTU2cXAzdW43In0.oB7SXDSODRHUM556Yhy9VQ"
     return render_template('electric.html')
+
+@app.route('/info', methods=['GET'])
+def info():
+    return render_template("info.html")
 
 
 if __name__ == "__main__":
