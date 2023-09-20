@@ -24,7 +24,10 @@
             </a>
             <a class="navbar-brand" href="{{ url_for('carbon') }}">
                 <h5 class="text-success" style="font-weight: italic;">Emissions</h5>
-            </a>   
+            </a>
+            <a class="navbar-brand" href="{{ url_for('electric') }}">
+                <h5 class="text-success" style="font-weight: italic;">Electric</h5>
+            </a>        
         </nav>
     </div>
 
@@ -32,10 +35,8 @@
     <br>
     <br>
     <br>
-    <h1 class="text-center text-success"> {{car_brand}}</h1>
-    <h1 class="text-center text-success"> {{car_type}}</h1>
-    <h1 class="text-center text-success"> {{miles}}</h1>
-    <h1 class="text-center text-success"> {{fuel}}</h1>
+    <h1 class="text-center text-success">Your {{carbrand}} {{cartype}} emitted {{carbon_emissions}} KG of CO2</h1>
+    
 
 </body>
 </html>
